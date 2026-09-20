@@ -4,7 +4,7 @@
 //     pub data: Option<serde_json::Value>,
 // }
 
-use actix_web::{HttpResponse, Responder, body::BoxBody, http::StatusCode, web};
+use actix_web::{HttpRequest, HttpResponse, Responder, body::BoxBody, http::StatusCode, web};
 
 pub struct ApiResponse {
     pub status_code: u16,
@@ -27,10 +27,8 @@ impl ApiResponse {
 impl Responder for ApiResponse {
     type Body = BoxBody;
 
-    fn respond_to(self, _req: &actix_web::HttpRequest) -> actix_web::HttpResponse<Self::Body> {
-        let body: BoxBody = BoxBody::new(web::BytesMut::from(self.body.as_bytes()));
+    fn respond_to(self, _req: &HttpRequest) -> HttpResponse<Self::Body> {
+        let body: BoxBody = BoxBody::new(self.body); // String implements MessageBody
         HttpResponse::new(self.response_code).set_body(body)
-
-        // actix_web::HttpResponse::build(self.response_code).body(self.body)
     }
 }
