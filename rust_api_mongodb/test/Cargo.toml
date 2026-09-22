@@ -1,0 +1,11 @@
+[package]
+name = "api_tests"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+actix-web = "4.15.0"
+async-trait = "0.1"
+mongodb = "3.9.1"
+rust_api_mongodb = { path = ".." }
+serde_json = "1"

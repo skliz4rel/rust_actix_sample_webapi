@@ -6,12 +6,14 @@ use mongodb::{
     error::Error,
     results::{InsertOneResult, UpdateResult},
 };
+use std::sync::Arc;
+
 pub struct DogRepository {
-    database: Database,
+    database: Arc<Database>,
 }
 
 impl DogRepository {
-    pub fn new(database: Database) -> Self {
+    pub fn new(database: Arc<Database>) -> Self {
         Self { database }
     }
 }

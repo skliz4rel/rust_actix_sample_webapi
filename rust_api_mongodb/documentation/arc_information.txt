@@ -1,0 +1,22 @@
+Arc in Rust stands for Atomically Reference Counted and acts as a smart pointer that provides safe, shared ownership of a heap-allocated value across multiple threads. 
+
+How It Works
+Heap Allocation: When you wrap a value in Arc::new, it moves that value to the heap. 
+
+Rust Documentation
+Reference Counting: Calling .clone() on an Arc does not copy the inner data. Instead, it creates a new pointer to the same heap location and atomically increases a shared reference counter. 
+
+Rust Documentation
+Automatic Cleanup: When an Arc pointer goes out of scope, the counter decreases. Once the counter reaches zero (meaning no pointers remain), the underlying value on the heap is automatically dropped and deallocated. 
+
+
+
+
+Key Rules and Usage
+Thread Safety: Unlike Rc (which is for single-threaded reference counting), Arc uses atomic operations for its counter, making it safe to send and share across thread boundaries (Send and Sync). 
+
+
+Immutability by Default: Arc provides read-only access to the data inside it. You cannot generally get a mutable reference through a shared Arc. 
+
+
+Enabling Mutation: To modify data shared across threads via an Arc, you typically combine it with synchronization primitives like a Mutex<T> or RwLock<T>

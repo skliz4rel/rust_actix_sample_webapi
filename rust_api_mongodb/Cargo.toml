@@ -3,6 +3,9 @@ name = "rust_api_mongodb"
 version = "0.1.0"
 edition = "2024"
 
+[workspace]
+members = ["test"]
+
 [dependencies]
 actix-web = "4.15.0"
 chrono = "0.4.45"
@@ -10,3 +13,4 @@ futures-util = "0.3.34"
 mongodb = "3.9.1"
 serde = "1.0.229"
 async-trait = "0.1"
+dotenvy = "0.15"

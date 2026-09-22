@@ -1,21 +1,21 @@
 use super::db_traits::booking_db_operation::BookingDbOperation;
 use crate::config::database::Database;
-use crate::models::booking_model::{Booking, BookingRequest, FullBooking};
+use crate::models::booking_model::{Booking, FullBooking};
 use async_trait::async_trait;
-use futures_util::{StreamExt, TryStreamExt};
+use futures_util::StreamExt;
 use mongodb::{
-    Client, Collection,
     bson::{doc, from_document, oid::ObjectId},
     error::Error,
     results::{InsertOneResult, UpdateResult},
 };
+use std::sync::Arc;
 
 pub struct BookingRepository {
-    database: Database,
+    database: Arc<Database>,
 }
 
 impl BookingRepository {
-    pub fn new(database: Database) -> Self {
+    pub fn new(database: Arc<Database>) -> Self {
         Self { database }
     }
 }

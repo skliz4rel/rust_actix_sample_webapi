@@ -39,7 +39,7 @@ impl TryFrom<BookingRequest> for Booking {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FullBooking {
     pub _id: ObjectId,
     pub owner: Owner,

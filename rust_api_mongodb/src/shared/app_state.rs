@@ -16,9 +16,11 @@ pub struct AppState {
 
 impl AppState {
     pub fn new(database: Database) -> Self {
+        let database = Arc::new(database);
+
         Self {
-            booking_repository: Arc::new(BookingRepository::new(database.clone())),
-            dog_repository: Arc::new(DogRepository::new(database.clone())),
+            booking_repository: Arc::new(BookingRepository::new(Arc::clone(&database))),
+            dog_repository: Arc::new(DogRepository::new(Arc::clone(&database))),
             owner_repository: Arc::new(OwnerRepository::new(database)),
         }
     }

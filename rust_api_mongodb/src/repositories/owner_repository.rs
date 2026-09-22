@@ -1,19 +1,19 @@
 use super::db_traits::owner_db_operation::OwnerDbOperation;
 use crate::config::database::Database;
-use crate::models::owner_model::{Owner, OwnerRequest};
+use crate::models::owner_model::Owner;
 use async_trait::async_trait;
 use mongodb::{
     error::Error,
     results::{InsertOneResult, UpdateResult},
 };
-use std::convert::TryFrom;
+use std::sync::Arc;
 
 pub struct OwnerRepository {
-    database: Database,
+    database: Arc<Database>,
 }
 
 impl OwnerRepository {
-    pub fn new(database: Database) -> Self {
+    pub fn new(database: Arc<Database>) -> Self {
         Self { database }
     }
 }
