@@ -5,3 +5,4 @@ pub mod repositories;
 pub mod routes;
 pub mod services;
 pub mod shared;
+pub mod swagger;
