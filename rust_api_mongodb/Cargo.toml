@@ -14,3 +14,7 @@ mongodb = "3.9.1"
 serde = "1.0.229"
 async-trait = "0.1"
 dotenvy = "0.15"
+
+# OpenAPI
+utoipa = { version = "4", features = ["actix_extras", "chrono", "uuid"] }
+utoipa-swagger-ui = { version = "6", features = ["actix-web"] }

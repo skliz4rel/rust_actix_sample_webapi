@@ -3,6 +3,7 @@ use chrono::Utc;
 use mongodb::bson::{DateTime, oid::ObjectId};
 use serde::{Deserialize, Serialize};
 use std::time::{SystemTime, UNIX_EPOCH};
+use utoipa::ToSchema;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Booking {
@@ -13,7 +14,7 @@ pub struct Booking {
     pub cancelled: bool,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, ToSchema)]
 pub struct BookingRequest {
     pub owner: String,
     pub start_time: String,
@@ -39,7 +40,7 @@ impl TryFrom<BookingRequest> for Booking {
     }
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize, ToSchema)]
 pub struct FullBooking {
     pub _id: ObjectId,
     pub owner: Owner,
