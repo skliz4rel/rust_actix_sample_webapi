@@ -1,11 +1,9 @@
-use crate::config::config::Config;
-
-use crate::swagger::api_doc::ApiDoc;
 use actix_web::{App, HttpServer, web};
+use rust_api_mongodb::config::config::Config;
 use rust_api_mongodb::config::database::Database;
 use rust_api_mongodb::shared::app_state::AppState;
-use rust_api_mongodb::{config, routes};
-use std::env;
+use rust_api_mongodb::{routes, swagger::api_doc::ApiDoc};
+use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
 #[actix_web::main]
