@@ -3,7 +3,7 @@ use actix_web::{
     web::{Data, Json},
 };
 
-use crate::models::dog_model::DogRequest;
+use crate::dtos::dog_request::DogRequest;
 use crate::services::dog_service::DogService;
 use crate::shared::app_state::AppState;
 

@@ -1,4 +1,5 @@
-use crate::models::owner_model::{Owner, OwnerRequest};
+use crate::dtos::owner_request::OwnerRequest;
+use crate::models::owner_model::Owner;
 use crate::repositories::db_traits::owner_db_operation::OwnerDbOperation;
 use actix_web::web::Json;
 use mongodb::{error::Error, results::InsertOneResult};

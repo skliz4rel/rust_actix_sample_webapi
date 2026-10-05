@@ -3,7 +3,8 @@ use actix_web::{
     web::{Data, Json, Path},
 };
 
-use crate::models::booking_model::{BookingRequest, FullBooking};
+use crate::dtos::{booking_request::BookingRequest};
+use crate::models::booking_model::{FullBooking};
 use crate::services::booking_service::BookingService;
 use crate::shared::app_state::AppState;
 
@@ -48,7 +49,6 @@ pub async fn get_bookings(state: Data<AppState>) -> HttpResponse {
     path = "/booking/{id}/cancel",
     tag = "Bookings",
     security(("bearer_auth" = [])),
-    request_body = CreateClientRequest,
     responses(
         (status = 201, description = "Booking cancelled", body = ClientResponse),
         (status = 400, description = "Bad Request"),

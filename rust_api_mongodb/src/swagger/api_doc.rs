@@ -8,9 +8,8 @@ use utoipa::{
 };
 
 use crate::handlers::booking_handler::{cancel_booking,get_bookings, create_booking};
-
-
-use crate::models::{booking_model::{BookingRequest,FullBooking}, dog_model::DogRequest, owner_model::OwnerRequest};
+use crate::models::{booking_model::{FullBooking}};
+use crate::dtos::{booking_request::BookingRequest, dog_request::DogRequest, owner_request::OwnerRequest};
 
 #[derive(OpenApi)]
 #[openapi(

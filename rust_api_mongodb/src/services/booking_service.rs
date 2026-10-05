@@ -1,4 +1,5 @@
-use crate::models::booking_model::{Booking, BookingRequest};
+use crate::dtos::booking_request::BookingRequest;
+use crate::models::booking_model::Booking;
 use crate::repositories::db_traits::booking_db_operation::BookingDbOperation;
 use actix_web::HttpResponse;
 use actix_web::web::Json;
