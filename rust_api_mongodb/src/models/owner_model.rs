@@ -1,18 +1,10 @@
+use crate::dtos::owner_request::OwnerRequest;
 use mongodb::bson::oid::ObjectId;
 use serde::{Deserialize, Serialize};
-use utoipa::ToSchema;
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Owner {
     pub _id: ObjectId,
-    pub name: String,
-    pub email: String,
-    pub phone: String,
-    pub address: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, ToSchema)]
-pub struct OwnerRequest {
     pub name: String,
     pub email: String,
     pub phone: String,

@@ -1,0 +1,14 @@
+1. Run Project and show swagger
+2. Explain Folder structure and Cargo.toml
+3. Explain config folder
+4. Explain dtos folder
+5. Explain handlers folder
+6. Explain models folder
+7. Explain repositories folder
+8. Explain routes folder
+9. Explain services folder
+10. Explain shared folder
+11. Explain swagger folder
+12. Explain lib.rs
+13. Explain .env
+14. Explain main.rs

@@ -1,3 +1,4 @@
+use crate::dtos::booking_request::BookingRequest;
 use crate::models::{dog_model::Dog, owner_model::Owner};
 use chrono::Utc;
 use mongodb::bson::{DateTime, oid::ObjectId};
@@ -12,13 +13,6 @@ pub struct Booking {
     pub start_time: DateTime,
     pub duration_in_minutes: u8,
     pub cancelled: bool,
-}
-
-#[derive(Debug, Serialize, Deserialize, ToSchema)]
-pub struct BookingRequest {
-    pub owner: String,
-    pub start_time: String,
-    pub duration_in_minutes: u8,
 }
 
 impl TryFrom<BookingRequest> for Booking {

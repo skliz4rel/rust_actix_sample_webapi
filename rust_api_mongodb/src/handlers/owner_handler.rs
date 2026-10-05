@@ -3,7 +3,7 @@ use actix_web::{
     web::{Data, Json},
 };
 
-use crate::models::owner_model::OwnerRequest;
+use crate::dtos::owner_request::OwnerRequest;
 use crate::services::owner_service::OwnerService;
 use crate::shared::app_state::AppState;
 

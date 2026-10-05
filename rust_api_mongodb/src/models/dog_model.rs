@@ -1,19 +1,11 @@
+use crate::dtos::dog_request::DogRequest;
 use mongodb::bson::oid::ObjectId;
 use serde::{Deserialize, Serialize};
-use utoipa::ToSchema;
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Dog {
     pub _id: ObjectId,
     pub owner: ObjectId,
-    pub name: Option<String>,
-    pub age: Option<u8>,
-    pub breed: Option<String>,
-}
-
-#[derive(Debug, Serialize, Deserialize, ToSchema)]
-pub struct DogRequest {
-    pub owner: String,
     pub name: Option<String>,
     pub age: Option<u8>,
     pub breed: Option<String>,

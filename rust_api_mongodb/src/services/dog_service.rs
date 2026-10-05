@@ -1,4 +1,5 @@
-use crate::models::dog_model::{Dog, DogRequest};
+use crate::dtos::dog_request::DogRequest;
+use crate::models::dog_model::Dog;
 use crate::repositories::db_traits::dog_db_operation::DogDbOperation;
 use actix_web::web::Json;
 use mongodb::{error::Error, results::InsertOneResult};
